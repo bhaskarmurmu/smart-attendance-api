@@ -30,5 +30,5 @@ ENV PORT=8000
 
 EXPOSE 8000
 
-# Run the FastAPI app using uvicorn
-CMD ["sh", "-c", "uvicorn main:app --host 0.0.0.0 --port ${PORT:-8000}"]
+# Run the FastAPI app using the Python entrypoint which parses PORT as int
+CMD ["python", "run.py"]
