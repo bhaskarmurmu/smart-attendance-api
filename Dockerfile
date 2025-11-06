@@ -29,6 +29,8 @@ COPY . /app
 ENV PORT=8000
 
 EXPOSE 8000
+# Make the start script executable and use it so shell expansion of $PORT works
+RUN chmod +x /app/start.sh
 
-# Run the FastAPI app using the Python entrypoint which parses PORT as int
-CMD ["python", "run.py"]
+# Run the start script which will invoke uvicorn with the expanded PORT
+CMD ["sh", "/app/start.sh"]

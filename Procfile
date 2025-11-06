@@ -1,1 +1,1 @@
-web: python run.py
+web: sh -c 'python run.py'
